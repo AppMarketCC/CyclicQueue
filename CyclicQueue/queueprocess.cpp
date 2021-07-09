@@ -8,13 +8,15 @@ typedef struct SeqQueue {
 	int front;
 	int rear;
 };
+
+
 //只有尾指针的循环队列
-typedef struct queuenode{
+typedef struct queuenode {
 	QElemType data;
 	struct queuenode* next;
 }QueueNode; //以上是结点类型的定义
 
-typedef struct{
+typedef struct {
 	queuenode* rear;
 }CRORLinkQueue; //只设一个指向队尾元素的指针
 
@@ -64,5 +66,44 @@ QElemType DeCRORQueue(CRORLinkQueue* Q)
 	return x;
 }
 
+//带表标志位的循环链表
+typedef struct SeQueue {
+	QElemType* data;
+	int front;
+	int rear;
+	int tag;
+};
 
+//初始化 
+SeQueue QueueInit(SeQueue Q) {//初始化队列
+	Q.front = Q.rear = 0; Q.tag = 0;
+	return Q;
+}
+//入队 
+SeQueue QueueIn(SeQueue Q, int e)
+{//入队列
+	if ((Q.tag == 1) && (Q.rear == Q.front))
+		cout << "队列已满" << endl;
+	else
+	{
+		Q.rear = (Q.rear + 1) % m;
+		Q.data[Q.rear] = e;
+		if (Q.tag == 0) Q.tag = 1; //队列已不空
+	}
+	return Q;
+}
+//出队
+QElemType QueueOut(SeQueue Q) {//出队列
+	QElemType e;
+	if (Q.tag == 0) {
+		cout << "队列为空" << endl; exit(0);
+	}
+	else
+	{
+		Q.front = (Q.front + 1) % m;
+		e = Q.data[Q.front];
+		if (Q.front == Q.rear) Q.tag = 0; //空队列 }
+		return(e);
+	}
+}
 
