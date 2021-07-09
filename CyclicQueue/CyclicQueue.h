@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 using namespace std;
 /*
@@ -47,6 +48,7 @@ public:
 			cout << endl;
 		}
 	}
+	//ÅÐ¶Ï¶ÓÁÐÒÑÂú
 	bool isFulled() {
 		if ((rear + 1) % STRATLEN == front) {
 			return true;
@@ -95,65 +97,3 @@ public:
 
 	//¶¯Ì¬¼õÉÙ
 };
-
-int main() {
-	CyclicQueue cycquee;
-	cycquee.Init();
-
-	for (int i = 1; i <= 99; i++) {
-		cycquee.InQuene(i);
-	}
-
-	//²âÊÔ¶ÓÂú
-	cycquee.InQuene(24);
-
-	int temp;
-	//É¾³ý
-	for (int j = 0; j < 50; j++) {
-		cycquee.DeQuene(&temp);
-		cout << "É¾³ý:" << temp << " ";
-	}
-	cout << endl;
-
-	cycquee.OutPut();
-	cout << "¶ÓÍ·ÔªËØ£º" << cycquee.getHead() << endl;
-	//Ñî»ÔÈý½Ç
-
-	CyclicQueue trangleQue;
-	trangleQue.Init();
-
-	int line = 6;
-	//cout<<""<<endl;
-	//cin>>line;
-
-	trangleQue.InQuene(0);
-	trangleQue.InQuene(1);
-	trangleQue.InQuene(1);
-
-	int head;
-	int value;
-	for (int i = 1; i < line + 1;) {
-		//head=trangleQue.getHead();
-		trangleQue.DeQuene(&value);
-		if (0 == value) {
-			cout << endl;
-			i++;
-			if (temp + value == 0) {
-				trangleQue.InQuene(0);
-				trangleQue.InQuene(0);
-			}
-			else {
-				trangleQue.InQuene(temp + value);
-			}
-		}
-		else {
-			cout << value << " ";
-			trangleQue.InQuene(temp + value);
-		}
-		temp = value;
-	}
-
-
-
-	return 0;
-}
