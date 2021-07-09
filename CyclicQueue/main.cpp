@@ -1,5 +1,5 @@
 #include<iostream>
-#include"cyclicqueue.h"
+#include"cyclicqueueobj.h"
 using namespace std;
 
 

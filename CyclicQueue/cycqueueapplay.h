@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include"cyclicqueue.h"
+#include"cyclicqueueobj.h"
 using namespace std;
 
 //Ñî»ÔÈý½Ç

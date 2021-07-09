@@ -23,10 +23,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cyclicqueue.h">
+    <ClInclude Include="cyclicqueueobj.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="cycqueueapplay.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cycalgorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

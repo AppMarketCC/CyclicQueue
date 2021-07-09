@@ -127,7 +127,8 @@
     <ClCompile Include="queueprocess.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cyclicqueue.h" />
+    <ClInclude Include="cycalgorithm.h" />
+    <ClInclude Include="cyclicqueueobj.h" />
     <ClInclude Include="cycqueueapplay.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
