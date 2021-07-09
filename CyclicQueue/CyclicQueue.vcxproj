@@ -124,12 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="queueprocess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cycalgorithm.h" />
     <ClInclude Include="cyclicqueueobj.h" />
     <ClInclude Include="cycqueueapplay.h" />
+    <ClInclude Include="queueprocess.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

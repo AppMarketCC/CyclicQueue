@@ -1,32 +1,71 @@
 #include<iostream>
-#include"cyclicqueueobj.h"
+//#include"cyclicqueueobj.h"
+#include"queueprocess.h"
+#include"cycalgorithm.h"
 using namespace std;
 
 
-void CycTest() {
-	CyclicQueue cycquee;
-	cycquee.Init();
+//void CycObjTest() {
+//	CyclicQueue cycquee;
+//	cycquee.Init();
+//
+//	for (int i = 1; i <= 99; i++) {
+//		cycquee.InQuene(i);
+//	}
+//
+//	//²âÊÔ¶ÓÂú
+//	cycquee.InQuene(24);
+//	int temp;
+//	//É¾³ý
+//	for (int j = 0; j < 50; j++) {
+//		cycquee.DeQuene(&temp);
+//		cout << "É¾³ý:" << temp << " ";
+//	}
+//	cout << endl;
+//
+//	cycquee.OutPut();
+//	cout << "¶ÓÍ·ÔªËØ£º" << cycquee.getHead() << endl;
+//}
 
-	for (int i = 1; i <= 99; i++) {
-		cycquee.InQuene(i);
+void AlgorithmTest() {
+	//²âÊÔ¶ÓÁÐ
+	CRORLinkQueue *crorqueue =new CRORLinkQueue;
+	int i;
+	
+	InitCRORQueue(crorqueue);
+	for (i = 0; i < 20;i++) {
+		EnCRORQueue(crorqueue, i);
 	}
+	//showCRORQuenue(crorqueue);
+	for (i = 0; i < 10; i++) {
+		DeCRORQueue(crorqueue);
+	}
+	//showCRORQuenue(crorqueue);
 
-	//²âÊÔ¶ÓÂú
-	cycquee.InQuene(24);
-	int temp;
-	//É¾³ý
-	for (int j = 0; j < 50; j++) {
-		cycquee.DeQuene(&temp);
-		cout << "É¾³ý:" << temp << " ";
+	SeTagQueue cytag;
+	QueueInit(cytag);
+	for (i = 0; i < 20; i++) {
+		QueueIn(cytag, i);
+	}
+	for (i = 0; i < 10; i++) {
+		cout<<QueueOut(cytag)<<" ";
 	}
 	cout << endl;
 
-	cycquee.OutPut();
-	cout << "¶ÓÍ·ÔªËØ£º" << cycquee.getHead() << endl;
+	//Í·ÈëÕ»£¬Î²³öÕ»
+	CycQueue cycq;
+	IinitQueue(cycq);
+	for (i = 0; i < 20; i++) {
+		FrontEnQueue(cycq, i);
+	}
+	for (i = 0; i < 10; i++) {
+		cout<<RaerDeQueue(cycq)<<" ";
+	}
+	cout << endl;
 }
 
 
 int main() {
-
+	AlgorithmTest();
 	return 0;
 }

@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="queueprocess.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cyclicqueueobj.h">
@@ -30,6 +27,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="cycalgorithm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="queueprocess.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
