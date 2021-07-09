@@ -7,7 +7,26 @@ typedef struct SeqQueue {
 	QElemType* base;
 	int front;
 	int rear;
-};
+}CycQueue;
+
+QElemType RaerDeQueue(CycQueue Q)
+//Q 是如上定义的循环队列，本算法实现从队尾删除，若删除成功，返回被删除元素，否则给出出错信息。
+{
+	if (Q.front == Q.rear) { cout << "队列空" << endl; exit(0); }
+	Q.rear = (Q.rear - 1 + MAXQSIZE) % MAXQSIZE; //修改队尾指针。
+	return(Q.base[(Q.rear + 1 + MAXQSIZE) % MAXQSIZE]); //返回出队元素。
+}
+
+void FrontEnQueue(CycQueue Q, QElemType x)
+// Q 是顺序存储的循环队列，本算法实现“从队头插入”元素 x。 
+{
+	if (Q.rear == (Q.front - 1 + MAXQSIZE) % MAXQSIZE) {
+		cout << "队满" << endl;
+		exit(0);
+	}
+	Q.base[Q.front] = x; //x 入队列
+	Q.front = (Q.front - 1 + MAXQSIZE) % MAXQSIZE; //修改队头指针。
+}// 结束从队头插入算法。
 
 
 //只有尾指针的循环队列
@@ -66,6 +85,7 @@ QElemType DeCRORQueue(CRORLinkQueue* Q)
 	return x;
 }
 
+#define TQSIZE 100
 //带表标志位的循环链表
 typedef struct SeQueue {
 	QElemType* data;
@@ -76,7 +96,8 @@ typedef struct SeQueue {
 
 //初始化 
 SeQueue QueueInit(SeQueue Q) {//初始化队列
-	Q.front = Q.rear = 0; Q.tag = 0;
+	Q.front = Q.rear = 0; 
+	Q.tag = 0;
 	return Q;
 }
 //入队 
@@ -86,9 +107,10 @@ SeQueue QueueIn(SeQueue Q, int e)
 		cout << "队列已满" << endl;
 	else
 	{
-		Q.rear = (Q.rear + 1) % m;
+		Q.rear = (Q.rear + 1) % TQSIZE;
 		Q.data[Q.rear] = e;
-		if (Q.tag == 0) Q.tag = 1; //队列已不空
+		if (Q.tag == 0)
+			Q.tag = 1; //队列已不空
 	}
 	return Q;
 }
@@ -96,14 +118,29 @@ SeQueue QueueIn(SeQueue Q, int e)
 QElemType QueueOut(SeQueue Q) {//出队列
 	QElemType e;
 	if (Q.tag == 0) {
-		cout << "队列为空" << endl; exit(0);
+		cout << "队列为空" << endl;
+		exit(0);
 	}
 	else
 	{
-		Q.front = (Q.front + 1) % m;
+		Q.front = (Q.front + 1) % TQSIZE;;
 		e = Q.data[Q.front];
-		if (Q.front == Q.rear) Q.tag = 0; //空队列 }
-		return(e);
+		if (Q.front == Q.rear) 
+			Q.tag = 0; //空队列 
 	}
+	return e;
 }
+
+
+//递归算法实现Ack
+int Ack(int m, int n)
+{
+	if (m == 0) 
+		return n + 1;
+	else if (m != 0 && n == 0) 
+		return Ack(m - 1, 1);
+	else 
+		return Ack(m - 1, Ack(m, m - 1));
+}//算法结束
+
 
